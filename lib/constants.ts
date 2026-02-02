@@ -1,5 +1,5 @@
-const NAV_ITMES = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Contact", href: "/contact" },
-    ]
+export const NAV_ITEMS = [
+    { href: '/', label: 'Dashboard' },
+    { href: '/search', label: 'Search' },
+    { href: '/watchlist', label: 'Watchlist' },
+];
