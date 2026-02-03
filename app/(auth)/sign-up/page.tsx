@@ -1,8 +1,8 @@
 'use client'
+// import CountrySelectField from '@/components/forms/CountrySelectField'
 import InputField from '@/components/forms/inputField'
 import SelectField from '@/components/forms/SelectField'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from '@/lib/constants'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -61,6 +61,13 @@ const SignUp = () => {
           validation={{ required: 'Password is required', minLength:8}}
         />
         {/*Country*/}
+        {/* <CountrySelectField 
+          name='country'
+          label='Country'
+          placeholder='Select your country'
+          error={errors.country}
+          required
+        /> */}
 
         <SelectField
           name='investmentGoals'
