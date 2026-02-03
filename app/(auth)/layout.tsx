@@ -13,6 +13,14 @@ const layout = ({children}:{children:React.ReactNode}) => {
           {children}
         </div>
       </section>
+      <section className='auth-right-section'>
+        <div className='z-10 relative lg:mt-4 lg:mb-16'>
+          <blockquote className='auth-blockquote'>
+            
+          </blockquote>
+        </div>
+
+      </section>
         
     </main>
   )
