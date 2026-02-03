@@ -19,7 +19,7 @@ const InputField = ({name,label,placeholder,type='text',register,error,validatio
           {...register(name,validation)}
         />
         {error && 
-          <p className='text-sm text-red-500'>{error[name]?.message as string}</p>
+          <p className='text-sm text-red-500'>{error.message}</p>
         }
     </div>
   )

@@ -1,8 +1,9 @@
 'use client'
 import FooterLink from '@/components/forms/FooterLink'
 // import CountrySelectField from '@/components/forms/CountrySelectField'
-import InputField from '@/components/forms/inputField'
+
 import SelectField from '@/components/forms/SelectField'
+import InputField from '@/components/forms/InputField'
 import { Button } from '@/components/ui/button'
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from '@/lib/constants'
 import React from 'react'
