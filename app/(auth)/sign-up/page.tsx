@@ -5,10 +5,15 @@ import SelectField from '@/components/forms/SelectField'
 import InputField from '@/components/forms/InputField'
 import { Button } from '@/components/ui/button'
 import { INVESTMENT_GOALS, PREFERRED_INDUSTRIES, RISK_TOLERANCE_OPTIONS } from '@/lib/constants'
-import React from 'react'
+import React, { use } from 'react'
 import { useForm } from 'react-hook-form'
+import { sign } from 'crypto'
+import { signUpWithEmail } from '@/lib/actions/auth.actions'
+import { useRouter } from 'next/navigation'
+import { toast } from 'sonner'
 
 const SignUp = () => {
+  const router=useRouter()
     const {
     register,
     handleSubmit,
@@ -25,11 +30,16 @@ const SignUp = () => {
     preferredIndustry: 'Technology',
     },mode: 'onBlur',
   })
-  const onSubmit = async (data:SignInFormData) => {
+  const onSubmit = async (data:SignUpFormData) => {
     try{
-      
+      const result = await signUpWithEmail(data)
+      if (result.success)
+        router.push('/')
     }catch(error){
       console.log(error)
+      toast.error('Sign up failed. Please try again.',{
+        description: error instanceof Error ? error.message : 'An unexpected error occurred. Please try again.'
+      })
     }
   }
   return (
