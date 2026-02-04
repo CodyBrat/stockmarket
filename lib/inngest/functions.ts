@@ -1,6 +1,7 @@
 import { inngest } from "@/lib/inngest/client";
 import { PERSONALIZED_WELCOME_EMAIL_PROMPT } from "./prompts";
 import { success } from "better-auth";
+import { sendWelcomeEmail } from "../nodemailer";
 
 export const sendSignUpEmail=inngest.createFunction(
     {id:'sign-up-email'},
@@ -32,7 +33,8 @@ export const sendSignUpEmail=inngest.createFunction(
         await step.run('send-welcome-email',async()=>{
             const part=response.candidates?.[0]?.content?.parts?.[0];
             const introText=(part && 'text' in part? part.text:null) || "Thanks for joining our investment platform! We're excited to have you on board."
-            //email sending logic here
+            const {data:{email,name}}=event
+            return await sendWelcomeEmail({email,name,intro:introText})
         })
         return{
             success:true,

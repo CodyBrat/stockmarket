@@ -27,7 +27,7 @@ const SignUp = () => {
   })
   const onSubmit = async (data:SignInFormData) => {
     try{
-      console.log(data)
+      
     }catch(error){
       console.log(error)
     }
