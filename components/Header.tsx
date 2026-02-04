@@ -5,7 +5,7 @@ import NavItems from './NavItems'
 import { User } from 'lucide-react'
 import UserDropdown from './UserDropdown'
 
-const Header = () => {
+const Header = ({user}:{user:User}) => {
   return (
     <header className='sticky top-0 header'>
         <div className='container header-wrapper'>
@@ -16,7 +16,7 @@ const Header = () => {
                 { /* navitems can be added here in future */ }
                 <NavItems />
             </nav>
-            <UserDropdown />
+            <UserDropdown user={user} />
         {/*userdropdown can be added here in future*/}   
         </div>
     </header>
